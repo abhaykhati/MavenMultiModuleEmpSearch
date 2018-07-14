@@ -1,0 +1,22 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.emp.search.parent</groupId>
+  <artifactId>searchParent</artifactId>
+  <version>1.1</version>
+  <packaging>pom</packaging>
+  <name>Custom Search Parent</name>
+  <description>Search for Employee by Name to get Salary</description>
+  
+  <properties>
+               <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+               <maven.compiler.target>1.8</maven.compiler.target>
+               <maven.compiler.source>1.8</maven.compiler.source>
+ </properties>
+ 
+ 
+ 
+  <modules>
+           <module>empSearchData</module>
+           <module>empSearchService</module>
+  </modules>
+</project>
