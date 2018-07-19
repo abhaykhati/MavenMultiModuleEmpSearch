@@ -1,22 +1,114 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.emp.search.parent</groupId>
-  <artifactId>searchParent</artifactId>
-  <version>1.1</version>
-  <packaging>pom</packaging>
-  <name>Custom Search Parent</name>
-  <description>Search for Employee by Name to get Salary</description>
-  
-  <properties>
-               <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-               <maven.compiler.target>1.8</maven.compiler.target>
-               <maven.compiler.source>1.8</maven.compiler.source>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+ <modelVersion>4.0.0</modelVersion>
+ <groupId>com.emp.search.parent</groupId>
+ <artifactId>searchParent</artifactId>
+ <version>1.1</version>
+ <packaging>pom</packaging>
+ <name>Custom Search Parent</name>
+ <description>Search for Employee by Name to get Salary</description>
+
+ <properties>
+  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  <maven.compiler.target>1.8</maven.compiler.target>
+  <maven.compiler.source>1.8</maven.compiler.source>
  </properties>
- 
- 
- 
-  <modules>
-           <module>empSearchData</module>
-           <module>empSearchService</module>
-  </modules>
-</project>
+
+
+
+ <modules>
+  <module>empSearchData</module>
+  <module>empSearchService</module>
+ </modules>
+
+ <dependencies>
+  <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+  <dependency>
+   <groupId>org.hibernate</groupId>
+   <artifactId>hibernate-core</artifactId>
+   <version>5.3.2.Final</version>
+  </dependency>
+ </dependencies>
+
+ <build>
+  <plugins>
+
+   <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-resources-plugin</artifactId>
+    <version>3.1.0</version>
+   </plugin>
+
+
+
+
+
+
+
+   <plugin>
+    <artifactId>maven-clean-plugin</artifactId>
+    <version>3.1.0</version>
+    <configuration>
+     <skip>false</skip><!-- if do not want the working directory to be deleted, 
+      even if clean is run. -->
+    </configuration>
+    <executions>
+     <execution>
+      <id>maven-clean</id>
+      <phase>initialize</phase>
+      <goals>
+       <goal>clean</goal>
+      </goals>
+     </execution>
+    </executions>
+   </plugin>
+
+   <!-- <plugin> -->
+   <!-- <groupId>org.apache.maven.plugins</groupId> -->
+   <!-- <artifactId>maven-surefire-plugin</artifactId> -->
+   <!-- <version>2.17</version> -->
+   <!-- <configuration> -->
+   <!-- <skipTests>true</skipTests> if you wish to skip test EXECUTION then 
+    either provide -DskipTests on commandline or make this element to true and 
+    if you wish to stop COMPILATION of test case then use following on command 
+    line mvn –Dmaven.test.skip=true package This will completely skip the test 
+    COMPILATION and test EXECUTION. -->
+
+
+
+   <!-- </configuration> -->
+   <!-- </plugin> -->
+  </plugins>
+  <pluginManagement>
+   <plugins>
+    <!--This plugin's configuration is used to store Eclipse m2e settings 
+     only. It has no influence on the Maven build itself. -->
+    <plugin>
+     <groupId>org.eclipse.m2e</groupId>
+     <artifactId>lifecycle-mapping</artifactId>
+     <version>1.0.0</version>
+     <configuration>
+      <lifecycleMappingMetadata>
+       <pluginExecutions>
+        <pluginExecution>
+         <pluginExecutionFilter>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-clean-plugin</artifactId>
+          <versionRange>[3.1.0,)</versionRange>
+          <goals>
+           <goal>clean</goal>
+          </goals>
+         </pluginExecutionFilter>
+         <action>
+          <ignore></ignore>
+         </action>
+        </pluginExecution>
+       </pluginExecutions>
+      </lifecycleMappingMetadata>
+     </configuration>
+    </plugin>
+   </plugins>
+  </pluginManagement>
+ </build>
+</project> 
